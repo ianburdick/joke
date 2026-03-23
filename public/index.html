@@ -1,52 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Joke Application</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    #joke { margin-top: 20px; font-size: 1.2em; }
-    .error { color: red; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional UI Enhancement</title>
 </head>
 <body>
-  <h1>Joke Application</h1>
-  <label for="category">Select Category:</label>
-  <select id="category">
-    <option value="random">Random Category</option>
-    <option value="general">General</option>
-    <option value="programming">Programming</option>
-    <option value="knock-knock">Knock-Knock</option>
-  </select>
-  <button id="tellJoke">Tell Joke</button>
-  <div id="joke"></div>
-
-  <script>
-    const categorySelect = document.getElementById('category');
-    const jokeDiv = document.getElementById('joke');
-    const button = document.getElementById('tellJoke');
-
-    button.addEventListener('click', async () => {
-      jokeDiv.textContent = 'Loading joke...';
-      jokeDiv.classList.remove('error');
-      const category = categorySelect.value;
-
-      try {
-        const resp = await fetch(`/joke?category=${encodeURIComponent(category)}`);
-        const data = await resp.json();
-
-        if (!resp.ok) {
-          jokeDiv.textContent = data.error || 'Error fetching joke';
-          jokeDiv.classList.add('error');
-          return;
-        }
-
-        jokeDiv.textContent = data.joke;
-      } catch (e) {
-        jokeDiv.textContent = 'Unable to fetch joke. Please check your connection and try again.';
-        jokeDiv.classList.add('error');
-      }
-    });
-  </script>
+  <div id="root"></div>
+  <script src="dist/bundle.js"></script>
 </body>
 </html>
