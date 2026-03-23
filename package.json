@@ -1,12 +1,24 @@
 {
-  "name": "joke-app",
+  "name": "professional-ui-enhancement",
   "version": "1.0.0",
-  "description": "Joke Application with category selection and error handling",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "node build-accessibility-check.js"
   },
   "dependencies": {
     "express": "^4.18.2",
+    "styled-components": "^5.3.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.57",
+    "@types/react-dom": "^18.2.19",
+    "@types/styled-components": "^5.1.28",
+    "axe-core": "^4.8.3"
   }
 }
